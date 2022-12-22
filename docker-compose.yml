@@ -1,31 +1,16 @@
 version: '3'
 
 services:
-  db:
-    image: mariadb
-    restart: always
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
-    networks:
-      - cloudnet
-    volumes:
-      - ./nextcloud-db:/var/lib/mysql
-    ports:
-      - 3306:3306
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: pma
-    links:
-      - db
     environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
+      PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
     ports:
       - 8081:80
-volumes:
-  dbdata:
-
+      
 networks:
   cloudnet:
     name: cloudnet

@@ -1,12 +1,10 @@
 version: '3'
 
 services:
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: pmadmin
-        environment:
-            PMA_PORT: 3306
-            PMA_ARBITRARY: 1
-        restart: always
-        ports:
-            - 8082:80
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "80:80"

@@ -3,7 +3,7 @@ version: '3'
 services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        container_name: pma
+        container_name: pmadmin
         environment:
             PMA_PORT: 3306
             PMA_ARBITRARY: 1
